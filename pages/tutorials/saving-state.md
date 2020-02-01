@@ -1,10 +1,10 @@
 Saving State
 =======================================
-You’ve build a marvellous app, configured your layout and the user arranged things just the way he likes. Great!
+So, you’ve built a marvellous app; configured your layout and your user has arranged things just the way they like. Great! 
 
-But the next time he opens the app he wants to find everything just the way he left it. Or (if you’re feeling fancy) choose from a number of saved layouts.
+The next time the user opens the app they'll want to find everything just the way they left it. Or (if you’re feeling fancy) let them choose from a number of saved layouts.
 
-GoldenLayout offers a powerful persistence mechanism for that. Not only every aspect of the layout, also the state of the components within it can be converted into a serialisable object that can be saved to a database, to local storage or wherever else your heart desires.
+GoldenLayout offers a powerful persistence mechanism for layout state. The state of the components within the layout can be converted into a serialisable object that can be saved to a database remotely or even in the browser's local storage.
 
 Here’s how it works:
 
@@ -68,11 +68,11 @@ in localStorage or he's using it for the first time and we provide a default con
 
 ### Saving Component States
 
-So far we've only saved the layout's state, but what about the components within it, the ones you've build? Well, remember the `componentState: { label: 'C' }` entry that you've configured? This is just the initial state, the component itself can update it by calling `container.extendState( state );` or `container.setState( state );`.
+So far we've only saved the layout's state, but what about the components within it - the ones you've built? Well, remember the `componentState: { label: 'C' }` entry that you've configured? This is just the initial state, the component itself can update it by calling `container.extendState( state );` or `container.setState( state );`.
 
 This stores it and emits a `stateChanged` event that bubbles up to the layout manager.
 
-Let's update our testComponent to show a text input with a persistant value:
+Let's update our `testComponent` to show a text input with a persistent value:
 
 	myLayout.registerComponent( 'testComponent', function( container, state ){
 
