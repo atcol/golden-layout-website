@@ -1,12 +1,11 @@
 Saving State
 =======================================
-So, you’ve built a marvellous app; configured your layout and your user has arranged things just the way they like. Great! 
+So you’ve built a marvellous app; configured your layout and your user has arranged things just the way they like. Great! 
 
 The next time the user opens the app they'll want to find everything just the way they left it. Or (if you’re feeling fancy) let them choose from a number of saved layouts.
 
-GoldenLayout offers a powerful persistence mechanism for layout state. The state of the components within the layout can be converted into a serialisable object that can be saved to a database remotely or even in the browser's local storage.
-
-Here’s how it works:
+GoldenLayout offers a powerful persistence mechanism for storing layout state. Every component within the layout can be
+ converted into a serialisable object that can be saved to a database remotely or even in the browser's local storage.
 
 ### Creating the layout
 For this tutorial we'll use the layout created in [getting-started](getting-started.html).
@@ -54,8 +53,8 @@ The actual state object is created by calling `myLayout.toConfig();`. For our ex
 
 ### Creating Layouts from saved states
 
-So now the next time the user opens the app there's a choice. Either he has used it before and the app's state is stored
-in localStorage or he's using it for the first time and we provide a default config.
+So now the next time the user opens the app there's a choice. Either they've used the app before and its state is
+stored in `localStorage` or its their first use at which point we provide a default config.
 
 	var myLayout,
 		savedState = localStorage.getItem( 'savedState' );
