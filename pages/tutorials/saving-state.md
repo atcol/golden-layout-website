@@ -94,7 +94,7 @@ Let's update our `testComponent` to show a text input with a persistent value:
         container.getElement().append( input );
     });
 
-### And initialise the layout
+### Initialise the layout
 	myLayout.init();
 
 ### The result

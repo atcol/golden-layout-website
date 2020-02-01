@@ -9,7 +9,7 @@ This tutorial is in many ways similar to [Using GoldenLayout with HighCharts and
 ### A quick note on resizing-behaviour
 Some of the components you'll come across resize purely based on CSS. 
 Others, like SlickGrid or HighCharts do all sorts of clever things when their size changes and therefor have an `onResize` or `setSize` method to notify them. Both of these approaches work perfectly well with GoldenLayout.
-There are, however, also the others. Those who need to know about resizing, but assume the only thing that will ever change size is the browser window. (I'm looking at you here, ng-grid). For these components it might make sense to trigger the window resize event programmatically when the container resizes, e.g.
+There are, however other libraries that don't play so well. Those who need to know about resizing, but assume the only thing that will ever change size is the browser window. (I'm looking at you here, ng-grid). For these components it might make sense to trigger the window resize event programmatically when the container resizes, e.g:
 
 	container.on( 'resize', function(){
 		$(window).trigger( 'resize' );
@@ -18,7 +18,8 @@ There are, however, also the others. Those who need to know about resizing, but 
 ### A few things to look out for
 
 #### Defered grid creation
-In order to determine its initial size, SlickGrid measures the component that it is inserted to. When GoldenLayout creates the Component however it is not yet inserted into the DOM. The size of the element returned by `container.getElement()` is therefor zero. So rather than creating the Grid straight away we'll wait for the container's `open` event - at which point it's inserted into the DOM and ready to go.
+In order to determine its initial size, SlickGrid measures the component that it is inserted into. However, when GoldenLayout creates the Component it is not yet inserted into the DOM. 
+The size of the element returned by `container.getElement()` is therefore zero. So rather than creating the Grid straight away we'll wait for the container's `open` event - at which point it's inserted into the DOM and ready to go.
 	
 	var StockGridComponent = function( container, state ) {
 		...
